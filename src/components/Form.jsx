@@ -1,7 +1,26 @@
+import { useState } from "react";
+import Alert from "./Alert";
+import useWeather from "../hooks/useWeather";
+
 const Form = () => {
+  const { search, searchData, checkWeather } = useWeather();
+  const { city, country } = search;
+  const [alert, setAlert] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (Object.values(search).includes("")) {
+      setAlert("All fields are required!");
+      return;
+    }
+
+    checkWeather(search);
+  };
+
   return (
-    <form className="w-full mx-auto space-y-10">
-      <div className="space-y-6">
+    <form className="w-full mx-auto space-y-10" onSubmit={handleSubmit}>
+      <div className="space-y-5">
         <div className="flex flex-col justify-between space-y-3">
           <label htmlFor="city" className="text-gray-700 font-bold uppercase">
             City
@@ -12,6 +31,8 @@ const Form = () => {
             name="city"
             className="bg-gray-50 rounded-lg border-transparent appearance-none border border-gray-300 py-2 px-4 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
             placeholder="Colima"
+            onChange={searchData}
+            value={city}
           />
         </div>
         <div className="flex flex-col justify-between space-y-3">
@@ -23,8 +44,10 @@ const Form = () => {
           </label>
           <select
             id="country"
-            name="county"
+            name="country"
             className="bg-gray-50 rounded-lg border-transparent appearance-none border border-gray-300 py-2 px-4 text-gray-700 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+            onChange={searchData}
+            value={country}
           >
             <option value="">-- Select a country --</option>
             <option value="US">United States</option>
@@ -37,10 +60,11 @@ const Form = () => {
           </select>
         </div>
       </div>
+      {alert && <Alert>{alert}</Alert>}
       <input
         type="submit"
         value="Check weather"
-        className="py-2 px-4 w-full uppercase bg-cyan-500 hover:bg-cyan-600 focus:ring-cyan-400 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer"
+        className="py-2.5 px-4 w-full uppercase bg-cyan-500 hover:bg-cyan-600 focus:ring-cyan-400 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer"
       />
     </form>
   );
