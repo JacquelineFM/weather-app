@@ -20,32 +20,29 @@ const Form = () => {
 
   return (
     <form className="w-full mx-auto space-y-10" onSubmit={handleSubmit}>
-      <div className="space-y-5">
+      <div className="space-y-8">
         <div className="flex flex-col justify-between space-y-3">
-          <label htmlFor="city" className="text-gray-700 font-bold uppercase">
+          <label htmlFor="city" className="font-bold uppercase">
             City
           </label>
           <input
             id="city"
             type="text"
             name="city"
-            className="bg-gray-50 rounded-lg border-transparent appearance-none border border-gray-300 py-2 px-4 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+            className="bg-gray-50 rounded-lg border-transparent appearance-none border border-gray-300 py-2.5 px-4 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
             placeholder="Colima"
             onChange={searchData}
             value={city}
           />
         </div>
         <div className="flex flex-col justify-between space-y-3">
-          <label
-            htmlFor="country"
-            className="text-gray-700 font-bold uppercase"
-          >
+          <label htmlFor="country" className="font-bold uppercase">
             Country
           </label>
           <select
             id="country"
             name="country"
-            className="bg-gray-50 rounded-lg border-transparent appearance-none border border-gray-300 py-2 px-4 text-gray-700 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+            className="bg-gray-50 rounded-lg border-transparent appearance-none border border-gray-300 py-2.5 px-4 text-gray-700 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
             onChange={searchData}
             value={country}
           >
@@ -64,7 +61,7 @@ const Form = () => {
       <input
         type="submit"
         value="Check weather"
-        className="py-2.5 px-4 w-full uppercase bg-cyan-500 hover:bg-cyan-600 focus:ring-cyan-400 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer"
+        className="py-2.5 px-4 w-full uppercase bg-sky-500 hover:bg-sky-600 focus:ring-sky-400 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-center font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer"
       />
     </form>
   );
