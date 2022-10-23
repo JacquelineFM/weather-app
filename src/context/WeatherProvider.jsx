@@ -9,6 +9,10 @@ const WeatherProvider = ({ children }) => {
   const [noResult, setNoResult] = useState("");
   const [search, setSearch] = useState({ city: "", country: "" });
 
+  /**
+   * When the user types in the search bar, the searchData function will update the state of the search
+   * object with the value of the input.
+   */
   const searchData = (e) => {
     setSearch({
       ...search,
@@ -16,6 +20,14 @@ const WeatherProvider = ({ children }) => {
     });
   };
 
+  /**
+   * The checkWeather function is an async function that takes a search object as an argument. It sets
+   * the loading state to true, sets the noResult state to false, and then tries to get the city and
+   * country from the search object. It then gets the appId from the environment variable, and sets the
+   * url to the openweathermap api. It then gets the data from the url, and gets the lat and lon from the
+   * data. It then sets the urlWeather to the openweathermap api with the lat and lon. It then gets the
+   * weatherData from the urlWeather, and sets the weather state to the weatherData.
+   */
   const checkWeather = async (search) => {
     setLoading(true);
     setNoResult(false);

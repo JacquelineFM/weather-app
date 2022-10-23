@@ -7,6 +7,11 @@ const Form = () => {
   const { city, country } = search;
   const [alert, setAlert] = useState("");
 
+  /**
+   * If any of the values in the search object are empty, set the alert to "All fields are required!"
+   * and return. Otherwise, set the alert to an empty string and check the weather.
+   * @returns the value of the search object.
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
 
