@@ -18,7 +18,7 @@ const Result = () => {
         <div className="flex flex-col rounded w-full">
           <div className="font-bold text-lg">{name}</div>
           <div className="text-sm text-gray-500">{date}</div>
-          <div className="mt-2 self-center h-24 w-24">
+          <div className="mt-3 self-center h-24 w-24">
             <img
               src={`https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/${icon}.svg`}
             />

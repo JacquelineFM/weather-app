@@ -15,6 +15,7 @@ const Form = () => {
       return;
     }
 
+    setAlert("");
     checkWeather(search);
   };
 

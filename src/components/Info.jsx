@@ -1,6 +1,6 @@
-const Alert = ({ children }) => {
+const Info = ({ children }) => {
   return (
-    <div className="py-4 px-6 shadow shadow-rose-700 rounded-lg bg-rose-600">
+    <div className="py-4 px-6 shadow shadow-sky-800 rounded-lg bg-sky-600">
       <div className="flex flex-col">
         <div className="flex items-center gap-2">
           <svg
@@ -14,10 +14,10 @@ const Alert = ({ children }) => {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              d="M6 18L18 6M6 6l12 12"
+              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
             />
           </svg>
-          <h3 className="text-lg text-white font-semibold">Error</h3>
+          <h3 className="text-lg text-white font-semibold">Info</h3>
         </div>
         <p className="text-white text-md">{children}</p>
       </div>
@@ -25,4 +25,4 @@ const Alert = ({ children }) => {
   );
 };
 
-export default Alert;
+export default Info;

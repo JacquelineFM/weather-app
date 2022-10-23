@@ -1,9 +1,12 @@
+import Alert from "./Alert";
 import Form from "./Form";
+import Info from "./Info";
+import Loading from "./Loading";
 import Result from "./Result";
 import useWeather from "../hooks/useWeather";
 
 const WeatherApp = () => {
-  const { weather } = useWeather();
+  const { weather, loading, noResult } = useWeather();
 
   return (
     <div className="w-full lg:px-36 lg:py-14 p-5">
@@ -17,7 +20,15 @@ const WeatherApp = () => {
           <Form />
         </div>
         <div className="bg-white rounded-lg shadow w-full mx-auto p-10 h-fit border-t-4 border-sky-500">
-          {weather?.name && <Result />}
+          {loading ? (
+            <Loading />
+          ) : noResult ? (
+            <Alert>{noResult}</Alert>
+          ) : weather?.name ? (
+            <Result />
+          ) : (
+            <Info>Make a consultation and look at the weather here!</Info>
+          )}
         </div>
       </main>
     </div>
